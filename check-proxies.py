@@ -16,13 +16,14 @@ def check_proxies():
     while not q.empty():
         proxy = q.get()
         try:
-            res = requests.get('http://ipinfo.json', 
+            res = requests.get('https://ipinfo.io/json', 
             proxies={'http': proxy,
                      'https': proxy})
+            if res.status_code == 200:
+                print(proxy)
         except:
             continue
-        if res.status_code == 200:
-            print(proxy)
+   
 
 for t in range(10):
     threading.Thread(target=check_proxies).start()
