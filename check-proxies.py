@@ -6,7 +6,7 @@ import requests
 q = queue.Queue()
 valid_proxies = []
 
-with open("proxy-list.txt", "r") as f:
+with open("proxy-list2.txt", "r") as f:
     proxies = f.read().split("\n")
     for p in proxies:
         q.put(p)
